@@ -50,16 +50,16 @@ export default class DiceWrapper extends React.Component {
                         <div onClick={ this.props.handleNewDiceRoll } className="border-4 text-2xl sm:text-3xl md:text-4xl border-sky-900 text-sky-900 hover:text-white hover:bg-sky-900 duration-200 transition-all cursor-pointer py-2 px-6 rounded-full text-center font-bold w-fit">Nochmal würfeln</div>
                         <div onClick={ onesPresent ? () => this.onOnesLayout(ones, sixes) : ()=>{} } className={ `${ onesPresent ? 'schocken-ones cursor-pointer' : 'opacity-50 cursor-default' } rounded-full py-2 pl-4 pr-2 flex items-center` }>
                             <span className="pb-1 text-2xl sm:text-3xl md:text-4xl font-medium">Einsen rauslegen</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
                     </div>
                     : <div className="h-2/6 md:h-1/6 flex items-center justify-center">
                         <div className="schocken-reload flex items-center justify-center cursor-pointer">
                             <div onClick={ this.props.newGame } className="text-2xl sm:text-3xl md:text-4xl font-bold pb-1 mr-4">Neues Spiel</div>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
                         </div>
                     </div>
