@@ -8,9 +8,21 @@
         grid-template-rows: 100px;
     }
     .dice {
-        @apply border-2 border-black rounded-xl w-24 h-24 p-2 grid grid-cols-3 items-center justify-items-center;
+        @apply border-2 border-black rounded-xl p-2 grid grid-cols-3 items-center justify-items-center;
+    }
+    .dice.big {
+        @apply w-24 h-24;
+    }
+    .dice.small {
+        @apply w-16 h-16;
     }
     .dot {
-        @apply w-4 h-4 bg-black rounded-full;
+        @apply bg-black rounded-full;
+    }
+    .dot.big {
+        @apply w-4 h-4;
+    }
+    .dot.small {
+        @apply w-3 h-3;
     }
 }
