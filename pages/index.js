@@ -42,14 +42,14 @@ export default class Schocken extends React.Component {
       <div className="min-w-screen h-screen relative">
         <nav className="w-full h-1/10 flex items-center justify-between px-6 sm:px-16">
           <div onClick={ this.newGame } className="hover:rotate-180 duration-500 transition-transform cursor-pointer p-4 -ml-4">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
           </div>
-          <div onClick={ () => this.setState({ menuOpen: true }) } className="p-4 -mr-4">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          <div onClick={ () => this.setState({ menuOpen: true }) } className="p-4 -mr-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </div>
         </nav>
         <main className="schocken-lower w-full h-9/10">
@@ -69,10 +69,10 @@ export default class Schocken extends React.Component {
         </main>
         <div className={` ${ this.state.menuOpen ? 'visible bg-sky-900/90' : 'invisible bg-sky-900/0' } absolute top-0 w-full h-full duration-200` }>
           <div className="h-1/10 flex items-center justify-end px-6 sm:px-16 text-white">
-            <div onClick={ () => this.setState({ menuOpen: false }) } className="p-4 -mr-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <div onClick={ () => this.setState({ menuOpen: false }) } className="p-4 -mr-4 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </div>
           </div>
           <div className={ `${ this.state.menuOpen ? 'translate-y-0' : 'translate-y-1'} flex flex-col items-center p-10 duration-200` }>
