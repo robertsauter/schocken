@@ -3,14 +3,34 @@
 @tailwind utilities;
 
 @layer components {
-    #pageWrapper {
-        @apply grid w-screen h-screen;
-        grid-template-rows: 100px;
+    .schocken-ones svg {
+        @apply duration-200 transition-transform;
+    }
+    .schocken-ones:hover svg {
+        @apply translate-x-2;
+    }
+    .schocken-reload svg {
+        @apply duration-500 transition-transform;
+    }
+    .schocken-reload:hover svg {
+        @apply rotate-180;
     }
     .dice {
-        @apply border-2 border-black rounded-xl w-24 h-24 p-2 grid grid-cols-3 items-center justify-items-center;
+        @apply border-black p-2 grid grid-cols-3 items-center justify-items-center;
+    }
+    .dice.big {
+        @apply w-24 h-24 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-2xl border-4 sm:border-8;
+    }
+    .dice.small {
+        @apply w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 sm:border-4;
     }
     .dot {
-        @apply w-4 h-4 bg-black rounded-full;
+        @apply bg-black rounded-full;
+    }
+    .dot.big {
+        @apply w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10;
+    }
+    .dot.small {
+        @apply w-3 h-3;
     }
 }
