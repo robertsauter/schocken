@@ -16,7 +16,7 @@
         @apply rotate-180;
     }
     .dice {
-        @apply border-black p-2 grid grid-cols-3 items-center justify-items-center;
+        @apply p-2 grid grid-cols-3 items-center justify-items-center;
     }
     .dice.big {
         @apply w-24 h-24 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-2xl border-4 sm:border-8;
@@ -25,7 +25,7 @@
         @apply w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 sm:border-4;
     }
     .dot {
-        @apply bg-black rounded-full;
+        @apply rounded-full;
     }
     .dot.big {
         @apply w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10;
