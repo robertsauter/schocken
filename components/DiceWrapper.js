@@ -7,7 +7,11 @@ export default class DiceWrapper extends React.Component {
         this.state = {
             values: [],
             valuesLoaded: false
-        }
+        };
+        this.newGameButton = {
+            light: 'border-sky-900 text-sky-900 hover:text-white hover:bg-sky-900',
+            dark: 'border-sky-200 text-sky-200 hover:text-sky-900 hover:bg-sky-200'
+        };
     }
 
     componentDidMount() {
@@ -45,11 +49,11 @@ export default class DiceWrapper extends React.Component {
         return(
             <div className="w-full h-full">
                 <div className={ `${ this.state.valuesLoaded ? 'opacity-100' : 'opacity-0 translate-y-1' } w-full h-4/6 md:h-5/6 flex content-center gap-y-6 justify-center gap-x-6 flex-wrap mb-2 transition-all duration-200` }>
-                    { this.state.values.map((value, i) => <Dice key={i} value={value} diceType="big"></Dice>) }
+                    { this.state.values.map((value, i) => <Dice key={i} value={value} diceType="big" theme={ this.props.theme }></Dice>) }
                 </div>
                 {this.props.move < 3 && ones.length < 3 && this.props.currentOnes + ones.length < 3
                     ? <div className="h-2/6 md:h-1/6 flex flex-col md:flex-row items-center justify-center gap-x-4 gap-y-4">
-                        <div onClick={ this.props.handleNewDiceRoll } className="border-4 text-2xl sm:text-3xl md:text-4xl border-sky-900 text-sky-900 hover:text-white hover:bg-sky-900 duration-200 transition-all cursor-pointer py-2 px-6 rounded-full text-center font-bold w-fit">Nochmal würfeln</div>
+                        <div onClick={ this.props.handleNewDiceRoll } className={ `${ this.newGameButton[this.props.theme] } border-4 text-2xl sm:text-3xl md:text-4xl duration-200 transition-all cursor-pointer py-2 px-6 rounded-full text-center font-bold w-fit` }>Nochmal würfeln</div>
                         <div onClick={ onesPresent ? () => this.onOnesLayout(ones, sixes) : ()=>{} } className={ `${ onesPresent ? 'schocken-ones cursor-pointer' : 'opacity-50 cursor-default' } rounded-full py-2 pl-4 pr-2 flex items-center` }>
                             <span className="pb-1 sm:pb-3 text-2xl sm:text-3xl md:text-4xl font-medium">Einsen rauslegen</span>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={ 2 }>
