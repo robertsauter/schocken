@@ -21,7 +21,9 @@ export default class Schocken extends React.Component {
   }
 
   newGame() {
-    this.setState({ mode: 'revealButton', move: 1, diceAmount: 3, ones: 0 });
+    window.setTimeout(() => {
+      this.setState({ mode: 'revealButton', move: 1, diceAmount: 3, ones: 0 });
+    }, 200);
   }
 
   layOutOnes(ones, sixes) {
@@ -31,7 +33,9 @@ export default class Schocken extends React.Component {
   }
 
   newDiceRoll() {
-    this.setState({ mode: 'revealButton', move: this.state.move + 1 });
+    window.setTimeout(() => {
+      this.setState({ mode: 'revealButton', move: this.state.move + 1 });
+    }, 200);
   }
 
   render() {
@@ -65,7 +69,7 @@ export default class Schocken extends React.Component {
             <div className="h-9/10 p-4">
               {
                 this.state.mode === 'revealButton'
-                ? <RevealButton handleClick={ () => this.setState({ mode: 'showResult' }) }></RevealButton>
+                ? <RevealButton handleClick={ () => { window.setTimeout(() => { this.setState({ mode: 'showResult' })}, 200) } }></RevealButton>
                 : this.state.mode === 'showResult' 
                 ? <DiceWrapper move={ this.state.move } currentOnes={ this.state.ones } diceAmount={ this.state.diceAmount } handleOnes={ this.layOutOnes } handleNewDiceRoll={ this.newDiceRoll } newGame={ this.newGame }></DiceWrapper>
                 : ''
