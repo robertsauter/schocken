@@ -1,5 +1,5 @@
 import React from 'react';
-import Dice from './dice';
+import Dice from './Dice';
 import { getDescription } from '../lib/descriptions';
 
 export default class DiceWrapper extends React.Component {

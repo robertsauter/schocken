@@ -1,7 +1,7 @@
 import React from 'react';
-import Dice from '../components/dice';
-import DiceWrapper from '../components/diceWrapper';
-import RevealButton from '../components/revealButton';
+import Dice from '../components/Dice';
+import DiceWrapper from '../components/DiceWrapper';
+import RevealButton from '../components/RevealButton';
 import Link from 'next/link';
 import Head from 'next/head';
 
