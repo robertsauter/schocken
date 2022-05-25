@@ -15,7 +15,8 @@ export default class Schocken extends React.Component {
       ones: 0,
       menuOpen: false,
       theme: 'light',
-      themeMenuOpen: false
+      themeMenuOpen: false,
+      specialMode: false
     };
     this.basicThemes = {
       light: 'bg-white text-black',
@@ -24,6 +25,14 @@ export default class Schocken extends React.Component {
     this.menuThemes = {
       light: 'bg-sky-900/90 text-white',
       dark: 'bg-white/90 text-sky-900'
+    };
+    this.switchActiveThemes = {
+      light: 'bg-white',
+      dark: 'bg-sky-900'
+    };
+    this.switchInactiveThemes = {
+      light: 'bg-gray-200',
+      dark: 'bg-gray-500'
     };
     this.themes = [
       {
@@ -34,10 +43,18 @@ export default class Schocken extends React.Component {
         id: 'dark',
         name: 'Dunkel',
       }
-    ]
+    ];
     this.newGame = this.newGame.bind(this);
     this.layOutOnes = this.layOutOnes.bind(this);
     this.newDiceRoll = this.newDiceRoll.bind(this);
+    this.changeTheme = this.changeTheme.bind(this);
+    this.toggleSpecialMode = this.toggleSpecialMode.bind(this);
+  }
+
+  componentDidMount() {
+    const theme = localStorage.getItem('schocken-theme');
+    const specialMode = localStorage.getItem('schocken-special-mode') === 'true';
+    this.setState({ theme: theme ? theme : 'light', specialMode: specialMode });
   }
 
   newGame() {
@@ -58,10 +75,21 @@ export default class Schocken extends React.Component {
     }, 200);
   }
 
+  changeTheme(id) {
+    this.setState({ theme: id });
+    localStorage.setItem('schocken-theme', id);
+  }
+
+  toggleSpecialMode() {
+    const newMode = !this.state.specialMode;
+    this.setState({ specialMode: newMode });
+    localStorage.setItem('schocken-special-mode', newMode);
+  }
+
   render() {
     const oneElements = [];
     for(let i = 0; i < this.state.ones; i++) {
-      oneElements.push(<Dice key={ i } value={ 1 } diceType="small" theme={ this.state.theme }></Dice>);
+      oneElements.push(<Dice key={ `smallDice${ i }` } value={ 1 } diceType="small" theme={ this.state.theme }></Dice>);
     }
     return (
       <div>
@@ -91,12 +119,12 @@ export default class Schocken extends React.Component {
                 this.state.mode === 'revealButton'
                 ? <RevealButton handleClick={ () => { window.setTimeout(() => { this.setState({ mode: 'showResult' })}, 200) } } theme={ this.state.theme }></RevealButton>
                 : this.state.mode === 'showResult' 
-                ? <DiceWrapper move={ this.state.move } currentOnes={ this.state.ones } diceAmount={ this.state.diceAmount } handleOnes={ this.layOutOnes } handleNewDiceRoll={ this.newDiceRoll } newGame={ this.newGame } theme={ this.state.theme }></DiceWrapper>
+                ? <DiceWrapper layedOutOnes={ this.state.ones } specialMode={ this.state.specialMode } move={ this.state.move } currentOnes={ this.state.ones } diceAmount={ this.state.diceAmount } handleOnes={ this.layOutOnes } handleNewDiceRoll={ this.newDiceRoll } newGame={ this.newGame } theme={ this.state.theme }></DiceWrapper>
                 : ''
               }
             </div>
           </main>
-          <div className={` ${ this.state.menuOpen ? 'visible' : 'invisible' } ${ this.menuThemes[this.state.theme] } absolute top-0 w-full h-full duration-200` }>
+          <div className={` ${ this.state.menuOpen ? 'visible opacity-100' : 'invisible opacity-0' } ${ this.menuThemes[this.state.theme] } absolute top-0 w-full h-full duration-200` }>
             <div className="h-1/10 flex items-center justify-end px-6 sm:px-16">
               <div onClick={ () => this.setState({ menuOpen: false, themeMenuOpen: false }) } className="p-4 -mr-4 cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -107,14 +135,20 @@ export default class Schocken extends React.Component {
             <div className={ `${ this.state.menuOpen ? 'translate-y-0' : 'translate-y-1'} flex flex-col items-center p-10 duration-200` }>
               <div onClick={ () => this.setState({ themeMenuOpen: !this.state.themeMenuOpen }) } className="text-3xl sm:text-4xl md:text-5xl font-bold cursor-pointer">Theme</div>
               <div className={`${ this.state.themeMenuOpen ? 'h-auto visible opacity-100' : 'invisible h-0 opacity-0' } duration-200 transition-all flex items-center flex-col`}>
-                {this.themes.map(theme => {
+                {this.themes.map((theme, i) => {
                   if(theme.id !== this.state.theme) {
-                    return <p onClick={ () => this.setState({ theme: theme.id }) } className="cursor-pointer py-2">{ theme.name }</p>;
+                    return <p onClick={ () => this.changeTheme(theme.id) } key={ `theme${ i }` } className="cursor-pointer py-2">{ theme.name }</p>;
                   }
                 })}
               </div>
+              <div onClick={ this.toggleSpecialMode } className="flex items-center mt-8">
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold cursor-pointer mr-2 sm:mr-4">Spezial Modus</p>
+                <div className={ `${ this.state.specialMode ? `${ this.switchActiveThemes[this.state.theme] } justify-end pl-8` : `${ this.switchInactiveThemes[this.state.theme] } justify-start pr-8` } mt-1 duration-200 transition-all cursor-pointer rounded-full p-1 relative flex items-center w-fit` }>
+                  <div className={ `${ this.menuThemes[this.state.theme] } rounded-full w-6 h-6` }></div>
+                </div>
+              </div>
               <Link href="/imprint">
-                <a className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">Impressum</a>
+                <a className="text-3xl sm:text-4xl md:text-5xl font-bold mt-8">Impressum</a>
               </Link>
             </div>
           </div>
