@@ -28,7 +28,8 @@ export default class DiceWrapper extends React.Component {
         window.setTimeout(() => {
             this.setState({ values: newValues, valuesLoaded: true });
             if(this.props.specialMode) {
-                const description = getDescription(newValues, this.props.layedOutOnes, this.props.move);
+                //const description = getDescription(newValues, this.props.layedOutOnes, this.props.move);
+                const description = getDescription([1, 1, 6], 0, 1);
                 window.setTimeout(() => {
                     this.setState({ description: description, descriptionShown: true });
                 }, 200);
