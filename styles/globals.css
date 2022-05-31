@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        @apply overscroll-y-contain;
+    }
+}
+
 @layer components {
     .schocken-ones svg {
         @apply duration-200 transition-transform;

@@ -1,0 +1,53 @@
+{
+    "name": "Schocken",
+    "theme_color": "white",
+    "background_color": "white",
+    "start_url": "/",
+    "display": "standalone",
+    "description": "Der digitale Würfelbecher fürs Schocken: Ihr wollt Schocken spielen, aber habt nicht genug Würfel? Benutzt einfach die Schocken App!",
+    "categories": [ "entertainment", "games", "utilities" ],
+    "icons": [
+        {
+            "src": "/icons/192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icons/384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "/icons/512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/icons/512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/1024.png",
+            "type": "image/png",
+            "sizes": "1024x1024"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "screenshot1.png",
+            "sizes": "356x640",
+            "type": "image/png",
+            "platform": "narrow",
+            "label": "Light mode"
+        },
+        {
+            "src": "screenshot2.png",
+            "sizes": "356x640",
+            "type": "image/png",
+            "platform": "narrow",
+            "label": "Dark mode"
+        }
+    ]
+}
