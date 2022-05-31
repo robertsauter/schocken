@@ -6,6 +6,7 @@ export default function Imprint(props) {
         <div>
             <Head>
                 <title>Impressum</title>
+                <meta name="theme-color" content="#0c4a6e" />
             </Head>
             <main className="p-10 bg-sky-900 h-screen">
                 <Link href="/">
