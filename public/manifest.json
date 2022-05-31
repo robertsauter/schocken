@@ -36,14 +36,14 @@
     ],
     "screenshots": [
         {
-            "src": "screenshot1.png",
+            "src": "/screenshots/screenshot1.png",
             "sizes": "356x640",
             "type": "image/png",
             "platform": "narrow",
             "label": "Light mode"
         },
         {
-            "src": "screenshot2.png",
+            "src": "/screenshots/screenshot2.png",
             "sizes": "356x640",
             "type": "image/png",
             "platform": "narrow",
