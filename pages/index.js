@@ -96,6 +96,7 @@ export default class Schocken extends React.Component {
         <Head>
           <title>Schocken</title>
           <meta name="theme-color" content={ this.state.theme === 'light' ? 'white' : '#0c4a6e' } />
+          <meta name="google-site-verification" content="ypSteyjhxA8obSz8szYPnQYv9F-v0Tozoj9WP8De8G0" />
         </Head>
         <div className={`${ this.basicThemes[this.state.theme] } min-w-screen h-screen relative`}>
           <nav className="w-full h-1/10 flex items-center justify-between px-6 sm:px-16">
