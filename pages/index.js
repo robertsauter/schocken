@@ -111,7 +111,7 @@ export default class Schocken extends React.Component {
               </svg>
             </div>
           </nav>
-          <main className="schocken-lower w-full h-9/10">
+          <main className="w-full h-9/10">
             <div className="h-1/10 flex items-center justify-between px-6 sm:px-16">
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold">{ this.state.move }/3</div>
               <div className="flex items-center gap-x-2">{ oneElements }</div>
@@ -134,25 +134,31 @@ export default class Schocken extends React.Component {
                 </svg>
               </div>
             </div>
-            <div className={ `${ this.state.menuOpen ? 'translate-y-0' : 'translate-y-1'} flex flex-col items-center p-10 duration-200` }>
-              <div onClick={ () => this.setState({ themeMenuOpen: !this.state.themeMenuOpen }) } className="text-3xl sm:text-4xl md:text-5xl font-bold cursor-pointer">Theme</div>
-              <div className={`${ this.state.themeMenuOpen ? 'h-auto visible opacity-100' : 'invisible h-0 opacity-0' } duration-200 transition-all flex items-center flex-col`}>
-                {this.themes.map((theme, i) => {
-                  if(theme.id !== this.state.theme) {
-                    return <p onClick={ () => this.changeTheme(theme.id) } key={ `theme${ i }` } className="cursor-pointer py-2">{ theme.name }</p>;
-                  }
-                })}
-              </div>
-              <div onClick={ this.toggleSpecialMode } className="flex items-center mt-8">
-                <p className="text-3xl sm:text-4xl md:text-5xl font-bold cursor-pointer mr-2 sm:mr-4">Spezial Modus</p>
+            <menu className={ `${ this.state.menuOpen ? 'translate-y-0' : 'translate-y-1'} flex flex-col items-center p-10 duration-200` }>
+              <li>
+                <h2 onClick={ () => this.setState({ themeMenuOpen: !this.state.themeMenuOpen }) } className="text-3xl sm:text-4xl md:text-5xl font-bold cursor-pointer">Theme</h2>
+                <div className={`${ this.state.themeMenuOpen ? 'h-auto visible opacity-100' : 'invisible h-0 opacity-0' } duration-200 transition-all flex items-center flex-col`}>
+                  {this.themes.map((theme, i) => {
+                    if(theme.id !== this.state.theme) {
+                      return <p onClick={ () => this.changeTheme(theme.id) } key={ `theme${ i }` } className="cursor-pointer py-2">{ theme.name }</p>;
+                    }
+                  })}
+                </div>
+              </li>
+              <li onClick={ this.toggleSpecialMode } className="flex items-center mt-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold cursor-pointer mr-2 sm:mr-4">Spezial Modus</h2>
                 <div className={ `${ this.state.specialMode ? `${ this.switchActiveThemes[this.state.theme] } justify-end pl-8` : `${ this.switchInactiveThemes[this.state.theme] } justify-start pr-8` } mt-1 duration-200 transition-all cursor-pointer rounded-full p-1 relative flex items-center w-fit` }>
                   <div className={ `${ this.menuThemes[this.state.theme] } rounded-full w-6 h-6` }></div>
                 </div>
-              </div>
-              <Link href="/imprint">
-                <a className="text-3xl sm:text-4xl md:text-5xl font-bold mt-8">Impressum</a>
-              </Link>
-            </div>
+              </li>
+              <li>
+                <Link href="/imprint">
+                  <a>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-8">Impressum</h2>
+                  </a>
+                </Link>
+              </li>
+            </menu>
           </div>
         </div>
       </div>
