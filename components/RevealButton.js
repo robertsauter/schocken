@@ -1,9 +1,11 @@
 export default function RevealButton(props) {
     const themes = {
-        light: 'text-black hover:text-sky-900',
-        dark: 'text-white hover:text-sky-200'
+        light: 'text-theme-dark-blue bg-theme-blue',
+        dark: 'text-white bg-theme-orange'
     }
-    return (<div onClick={ props.handleClick } className={ `${ themes[props.theme] } h-4/6 md:h-5/6 hover:-translate-y-2 duration-200 transition-all cursor-pointer w-full flex items-center justify-center text-5xl sm:text-8xl md:text-9xl font-bold` }>
-        Aufdecken
+    return (<div onClick={ props.handleClick } className="cursor-pointer w-full h-full flex items-center justify-center">
+        <div className={ `${ themes[props.theme] } w-72 h-72 sm:w-full sm:h-full flex justify-center items-center rounded-full active:scale-105 duration-75 transition-transform ease-in` }>
+            <button type="button" className="text-5xl sm:text-8xl md:text-9xl font-bold text-white">Aufdecken</button>
+        </div>
     </div>);
 }
