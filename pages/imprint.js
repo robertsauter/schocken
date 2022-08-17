@@ -8,7 +8,7 @@ export default function Imprint(props) {
                 <title>Impressum</title>
                 <meta name="theme-color" content="#0c4a6e" />
             </Head>
-            <main className="p-10 bg-sky-900 h-screen">
+            <main className="p-10 bg-theme-dark-blue h-screen">
                 <Link href="/">
                     <a className="text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -42,6 +42,10 @@ export default class Schocken extends React.Component {
     const theme = localStorage.getItem('schocken-theme');
     const specialMode = localStorage.getItem('schocken-special-mode') === 'true';
     this.setState({ theme: theme ? theme : 'light', specialMode: specialMode });
+    screen.orientation.lock('portrait')
+    .catch(e => {
+      //Do nothing, when lock is not supported by th device.
+    });
   }
 
   newGame() {
@@ -84,7 +88,7 @@ export default class Schocken extends React.Component {
           <title>Schocken</title>
           <meta name="theme-color" content={ this.state.theme === 'light' ? 'white' : '#0c4a6e' } />
         </Head>
-        <div className={`${ this.basicThemes[this.state.theme] } min-w-screen h-screen relative`}>
+        <div className={`${ this.basicThemes[this.state.theme] } min-w-screen h-screen relative select-none`}>
           <nav className="w-full h-1/10 flex items-center justify-between px-6 sm:px-16">
             <div onClick={ this.newGame } className="hover:rotate-180 duration-500 transition-transform cursor-pointer p-4 -ml-4">
               <div className="bg-theme-yellow rounded-full p-2 active:scale-110 transition-transform duration-75 ease-in">
