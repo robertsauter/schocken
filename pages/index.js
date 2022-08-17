@@ -21,6 +21,10 @@ export default class Schocken extends React.Component {
       light: 'bg-white text-theme-dark-blue',
       dark: 'bg-theme-dark-blue text-white'
     };
+    this.windowThemes = {
+      light: '#FFFFFF',
+      dark: '#023047'
+    }
     this.themes = [
       {
         id: 'light',
@@ -86,7 +90,7 @@ export default class Schocken extends React.Component {
       <div>
         <Head>
           <title>Schocken</title>
-          <meta name="theme-color" content={ this.state.theme === 'light' ? 'white' : '#0c4a6e' } />
+          <meta name="theme-color" content={ this.windowThemes[this.state.theme] } />
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
         </Head>
         <div className={`${ this.basicThemes[this.state.theme] } min-w-screen h-screen relative select-none`}>
