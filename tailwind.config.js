@@ -32,9 +32,6 @@ module.exports = {
           '100%': { transform: 'scale(100%)', opacity: '1' }
         }
       },
-      screens: {
-        'xs': '383px'
-      }
     },
   },
   plugins: [],
