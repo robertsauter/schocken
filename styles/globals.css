@@ -27,7 +27,7 @@
         @apply p-2 grid grid-cols-3 items-center justify-items-center;
     }
     .dice.big {
-        @apply w-24 h-24 md:w-40 md:h-40 rounded-2.5xl border-6 sm:border-8;
+        @apply w-24 h-24 xs:w-28 xs:h-28 md:w-40 md:h-40 rounded-2.5xl xs:rounded-3xl border-6 xs:border-8;
     }
     .dice.small {
         @apply w-12 h-12 rounded-xl border-4 sm:border-6;
@@ -36,7 +36,7 @@
         @apply rounded-full;
     }
     .dot.big {
-        @apply w-4 h-4 md:w-8 md:h-8;
+        @apply w-4 h-4 xs:w-5 xs:h-5 md:w-8 md:h-8;
     }
     .dot.small {
         @apply w-2 h-2;
