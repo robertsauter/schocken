@@ -110,7 +110,7 @@ export default class Schocken extends React.Component {
           </nav>
           <main className="w-full h-9/10">
             <div className="h-1/10 flex items-center justify-between px-6 sm:px-16">
-              <div className="text-2xl sm:text-4xl md:text-5xl font-bold">{ this.state.move }/3</div>
+              <div className="text-2xl sm:text-4xl font-bold">{ this.state.move }/3</div>
               <div className="flex items-center gap-x-2">{ oneElements }</div>
             </div>
             <div className="h-9/10 p-6">
