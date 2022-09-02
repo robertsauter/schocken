@@ -9,6 +9,11 @@
     "categories": [ "entertainment", "games", "utilities" ],
     "icons": [
         {
+            "src": "/icons/180.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
             "src": "/icons/192.png",
             "type": "image/png",
             "sizes": "192x192"
@@ -49,20 +54,6 @@
             "type": "image/png",
             "platform": "narrow",
             "label": "Ones"
-        },
-        {
-            "src": "/screenshots/screenshot3.png",
-            "sizes": "540x960",
-            "type": "image/png",
-            "platform": "narrow",
-            "label": "Dark mode"
-        },
-        {
-            "src": "/screenshots/screenshot4.png",
-            "sizes": "540x960",
-            "type": "image/png",
-            "platform": "narrow",
-            "label": "Special mode"
         }
     ]
 }
