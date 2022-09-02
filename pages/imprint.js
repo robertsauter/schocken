@@ -20,6 +20,7 @@ export default function Imprint(props) {
                     <p>Gemacht von Robert Sauter</p>
                     <p>Diese Seite erfasst oder verarbeitet keinerlei Daten!</p>
                     <p>Icons von: <a href="https://heroicons.com/" target="_blank" rel="noreferrer">heroicons.com</a></p>
+                    <p>Icon und einige Abbildungen erstellt mithilfe von: <a href="https://heroicons.com/" target="_blank" rel="noreferrer">heroicons.com</a></p>
                     <p>Öffentliches repository: <a href="https://github.com/robertsauter/schocken" target="_blank" rel="noreferrer">github.com</a></p>
                 </div>
             </main>
