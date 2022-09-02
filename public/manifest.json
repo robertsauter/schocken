@@ -24,7 +24,7 @@
             "sizes": "512x512"
         },
         {
-            "src": "/icons/512.png",
+            "src": "/icons/512-maskable.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "maskable"
@@ -38,17 +38,31 @@
     "screenshots": [
         {
             "src": "/screenshots/screenshot1.png",
-            "sizes": "356x640",
+            "sizes": "540x960",
             "type": "image/png",
             "platform": "narrow",
-            "label": "Light mode"
+            "label": "General info"
         },
         {
             "src": "/screenshots/screenshot2.png",
-            "sizes": "356x640",
+            "sizes": "540x960",
+            "type": "image/png",
+            "platform": "narrow",
+            "label": "Ones"
+        },
+        {
+            "src": "/screenshots/screenshot3.png",
+            "sizes": "540x960",
             "type": "image/png",
             "platform": "narrow",
             "label": "Dark mode"
+        },
+        {
+            "src": "/screenshots/screenshot4.png",
+            "sizes": "540x960",
+            "type": "image/png",
+            "platform": "narrow",
+            "label": "Special mode"
         }
     ]
 }
