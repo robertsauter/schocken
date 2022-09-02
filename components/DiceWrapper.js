@@ -11,10 +11,6 @@ export default class DiceWrapper extends React.Component {
             description: '',
             descriptionShown: false
         };
-        this.newGameButton = {
-            light: 'border-sky-900 text-sky-900 hover:text-white hover:bg-sky-900',
-            dark: 'border-sky-200 text-sky-200 hover:text-sky-900 hover:bg-sky-200'
-        };
     }
 
     componentDidMount() {
@@ -58,31 +54,25 @@ export default class DiceWrapper extends React.Component {
         const onesPresent = ones.length > 0 || sixes.length > 1;
         return(
             <div className="w-full h-full relative">
-                <div className={ `${ this.state.descriptionShown ? 'visible scale-100' : 'invisible scale-50' } duration-200 transition-transform w-full flex justify-center absolute font-bold text-3xl sm:text-4xl text-center` }>
+                <div className={ `${ this.state.descriptionShown ? 'visible scale-100' : 'invisible scale-50' } h-1/10 duration-200 transition-transform w-full flex justify-center font-bold text-3xl sm:text-4xl text-center` }>
                     { this.state.description }
                 </div>
-                <div className={ `${ this.state.valuesLoaded ? 'opacity-100' : 'opacity-0 translate-y-1' } w-full h-4/6 md:h-5/6 flex content-center gap-y-6 justify-center gap-x-6 flex-wrap mb-2 transition-all duration-200` }>
-                    { this.state.values.map((value, i) => <Dice key={ `bigDice${ i }` } value={value} diceType="big" theme={ this.props.theme }></Dice>) }
-                </div>
-                {this.props.move < 3 && ones.length < 3 && this.props.currentOnes + ones.length < 3
-                    ? <div className="h-2/6 md:h-1/6 flex flex-col md:flex-row items-center justify-center gap-x-4 gap-y-4">
-                        <div onClick={ this.props.handleNewDiceRoll } className={ `${ this.newGameButton[this.props.theme] } border-4 text-2xl sm:text-3xl md:text-4xl duration-200 transition-all cursor-pointer py-2 px-6 rounded-full text-center font-bold w-fit` }>Nochmal würfeln</div>
-                        <div onClick={ onesPresent ? () => this.onOnesLayout(ones, sixes) : ()=>{} } className={ `${ onesPresent ? 'schocken-ones cursor-pointer' : 'opacity-50 cursor-default' } rounded-full py-2 pl-4 pr-2 flex items-center` }>
-                            <span className="pb-1 sm:pb-3 text-2xl sm:text-3xl md:text-4xl font-medium">Einsen rauslegen</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={ 2 }>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
+                {this.state.values.length > 0
+                    ? <div onClick={ this.props.move < 3 && ones.length < 3 && this.props.currentOnes + ones.length < 3 ? this.props.handleNewDiceRoll : this.props.newGame } className={ `${ this.state.valuesLoaded ? 'opacity-100' : 'opacity-0 translate-y-4 ' } active:scale-75 active:rotate-45 active:opacity-0 w-full h-8/10 flex content-center gap-y-8 justify-center gap-x-8 flex-wrap mb-2 transition-all duration-200` }>
+                            {this.state.values.map((value, i) => <Dice key={ `bigDice${ i }` } value={value} diceType="big" theme={ this.props.theme }></Dice>)}
                     </div>
-                    : <div className="h-2/6 md:h-1/6 flex items-center justify-center">
-                        <div onClick={ this.props.newGame } className="schocken-reload flex items-center justify-center cursor-pointer">
-                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold pb-1 mr-4">Neues Spiel</div>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={ 2 }>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                        </div>
+                    : <div onClick={ this.props.move < 3 && ones.length < 3 && this.props.currentOnes + ones.length < 3 ? this.props.handleNewDiceRoll : this.props.newGame } className={ `${ this.state.valuesLoaded ? 'opacity-100' : 'opacity-0 translate-y-4' } w-full h-8/10 flex content-center gap-y-6 justify-center gap-x-6 flex-wrap mb-2 transition-all duration-200` }>
+                        <span className="bg-theme-yellow text-white rounded-full p-8 active:scale-105 duration-75 transition-transform ease-in">Erneut würfeln</span>
                     </div>
                 }
+                <div className=" h-1/10 flex items-center overflow-y-hidden">
+                    <button type="button" onClick={ onesPresent ? () => this.onOnesLayout(ones, sixes) : ()=>{} } className={ `${ onesPresent && this.props.move < 3 && this.props.currentOnes + ones.length < 3 ? 'schocken-ones' : 'translate-y-full mt-1' } duration-200 ease-in rounded-full flex items-center justify-between w-full h-full  bg-theme-blue pl-6 pr-1 overflow-x-hidden` }>
+                        <span className="text-xl sm:text-3xl font-medium text-white">Einsen rauslegen</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={ 2 }>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         );
     }
