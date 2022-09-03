@@ -58,11 +58,11 @@ export default class DiceWrapper extends React.Component {
                     { this.state.description }
                 </div>
                 {this.state.values.length > 0
-                    ? <div onClick={ this.props.move < 3 && ones.length < 3 && this.props.currentOnes + ones.length < 3 ? this.props.handleNewDiceRoll : this.props.newGame } className={ `${ this.state.valuesLoaded ? 'opacity-100' : 'opacity-0 translate-y-4 ' } active:scale-75 active:rotate-45 active:opacity-0 w-full h-8/10 flex content-center gap-y-8 justify-center gap-x-8 flex-wrap mb-2 transition-all duration-200` }>
+                    ? <div onClick={ this.props.move < 3 && ones.length < 3 && this.props.currentOnes + ones.length < 3 ? this.props.handleNewDiceRoll : this.props.newGame } className={ `${ this.state.valuesLoaded ? 'opacity-100' : 'opacity-0 translate-y-4 ' } hover:scale-75 hover:rotate-45 hover:opacity-0 w-full h-8/10 flex content-center gap-y-8 justify-center gap-x-8 flex-wrap mb-2 transition-all duration-200` }>
                             {this.state.values.map((value, i) => <Dice key={ `bigDice${ i }` } value={value} diceType="big" theme={ this.props.theme }></Dice>)}
                     </div>
                     : <div onClick={ this.props.move < 3 && ones.length < 3 && this.props.currentOnes + ones.length < 3 ? this.props.handleNewDiceRoll : this.props.newGame } className={ `${ this.state.valuesLoaded ? 'opacity-100' : 'opacity-0 translate-y-4' } w-full h-8/10 flex content-center gap-y-6 justify-center gap-x-6 flex-wrap mb-2 transition-all duration-200` }>
-                        <span className="bg-theme-yellow text-white rounded-full p-8 active:scale-105 duration-75 transition-transform ease-in">Erneut würfeln</span>
+                        <span className="bg-theme-yellow text-white rounded-full p-8 hover:scale-105 duration-75 transition-transform ease-in">Erneut würfeln</span>
                     </div>
                 }
                 <div className=" h-1/10 flex items-center overflow-y-hidden">
