@@ -46,10 +46,15 @@ export default class Schocken extends React.Component {
     const theme = localStorage.getItem('schocken-theme');
     const specialMode = localStorage.getItem('schocken-special-mode') === 'true';
     this.setState({ theme: theme ? theme : 'light', specialMode: specialMode });
-    window.screen.orientation.lock('portrait')
-    .catch(e => {
-      //Do nothing, when lock is not supported by the device.
-    });
+    try {
+      window.screen.orientation.lock('portrait')
+      .catch(e => {
+        //Do nothing, when lock is not supported by the device.
+      });
+    }
+    catch(e) {
+      //I think the lock() method is not present in Safari, so it throws an error, when this happens do nothing
+    }
   }
 
   newGame() {
