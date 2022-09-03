@@ -46,9 +46,9 @@ export default class Schocken extends React.Component {
     const theme = localStorage.getItem('schocken-theme');
     const specialMode = localStorage.getItem('schocken-special-mode') === 'true';
     this.setState({ theme: theme ? theme : 'light', specialMode: specialMode });
-    screen.orientation.lock('portrait')
+    window.screen.orientation.lock('portrait')
     .catch(e => {
-      //Do nothing, when lock is not supported by th device.
+      //Do nothing, when lock is not supported by the device.
     });
   }
 
