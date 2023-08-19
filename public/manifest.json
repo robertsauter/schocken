@@ -1,8 +1,8 @@
 {
     "name": "Schocken Würfelbecher",
     "short_name": "Schocken",
-    "theme_color": "white",
-    "background_color": "white",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
     "start_url": "/",
     "display": "standalone",
     "description": "Der digitale Würfelbecher fürs Schocken: Ihr wollt Schocken spielen, aber habt nicht genug Würfel? Benutzt einfach die Schocken App!",
