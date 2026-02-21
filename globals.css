@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "Rubik";
+    src: url("/Rubik-VariableFont_wght.woff2") format("woff2");
+    font-weight: 400 700;
+}
+
+html {
+    font-family: Rubik, "Trebuchet MS", Verdana, Arial, sans-serif;
+
+    --theme-yellow: #ffb703;
+    --theme-dark-blue: #023047;
+    --theme-light: white;
+    --theme-dark: black;
+    --theme-orange: #fb8500;
+    --theme-light-blue: #8ecae6;
+    --theme-blue: #219ebc;
+
+    --theme-background: var(--theme-light);
+    --theme-text: var(--theme-dark);
+
+    --theme-menu-background: rgba(2, 48, 71, 0.9);
+    --theme-menu-text: var(--theme-light);
+
+    --theme-switch: lightgray;
+    --theme-switch-active: var(--theme-yellow);
+
+    --theme-reveal-button: var(--theme-blue);
+}
+
+[data-theme="dark"] {
+    --theme-background: var(--theme-dark-blue);
+    --theme-text: var(--theme-light);
+
+    --theme-menu-background: rgba(255, 255, 255, 0.9);
+    --theme-menu-text: var(--theme-dark-blue);
+
+    --theme-switch: gray;
+    --theme-switch-active: var(--theme-orange);
+
+    --theme-reveal-button: var(--theme-orange);
+}
+
+body {
+    margin: 0;
+    overscroll-behavior-y: contain;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+button {
+    font-size: 1rem;
+    font-family: Rubik, "Trebuchet MS", Verdana, Arial, sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu-button {
+    border-style: none;
+    background-color: transparent;
+    padding: 1.5rem;
+}
+
+.menu-button .menu-button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.menu-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--theme-menu-text);
+}
+
+@media(min-width: 640px) {
+    .menu-button .menu-button-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .menu-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media(min-width: 768px) {
+    .menu-title {
+        font-size: 3rem;
+    }
+}
